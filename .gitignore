@@ -137,3 +137,7 @@ weights/
 *.ipynb
 
 .ruff_cache/
+
+#for local development
+*.pt
+*.yaml
