@@ -4,7 +4,7 @@ import numpy as np
 import torch
 from torch import nn
 
-from yolo5face.yoloface.utils.general import xyxy2xywh
+from ..utils.general import xyxy2xywh
 
 
 def autopad(k: int | list[int], p: int | list[int] | None = None) -> int | list[int]:

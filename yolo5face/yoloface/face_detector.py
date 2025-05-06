@@ -5,11 +5,13 @@ import cv2
 import numpy as np
 import torch
 from torch import nn
+#from torch.serialization import safe_globals
+import numpy.core.multiarray
 
-from yolo5face.yoloface.models.yolo import Model
-from yolo5face.yoloface.types import BoxType, KeypointType
-from yolo5face.yoloface.utils.datasets import letterbox
-from yolo5face.yoloface.utils.general import (
+from .models.yolo import Model
+from .types import BoxType, KeypointType
+from .utils.datasets import letterbox
+from .utils.general import (
     check_img_size,
     non_max_suppression_face,
     scale_coords,
@@ -38,7 +40,8 @@ class YoloDetector:
         self.detector = self.init_detector(weights_name, config_name)
 
     def init_detector(self, weights_name: str, config_name: str) -> nn.Module:
-        state_dict = torch.load(weights_name)
+        # safe_globals(["_reconstruct"])
+        state_dict = torch.load(weights_name, weights_only=True)
         detector = Model(cfg=config_name)
         detector.load_state_dict(state_dict)
         return detector.to(self.device).float().eval()

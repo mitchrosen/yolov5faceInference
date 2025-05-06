@@ -5,7 +5,7 @@ import torch
 import yaml
 from torch import nn
 
-from yolo5face.yoloface.models.common import (
+from .common import (
     C3,
     SPP,
     Bottleneck,
@@ -17,7 +17,7 @@ from yolo5face.yoloface.models.common import (
     StemBlock,
     dwconv,
 )
-from yolo5face.yoloface.utils.general import make_divisible
+from ..utils.general import make_divisible
 
 
 class Detect(nn.Module):

@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import torchvision
 
-from yolo5face.yoloface.types import ShapeLike, TensorLike
+from ..types import ShapeLike, TensorLike
 
 MAX_NMS_COMPARISONS = 3000
 
