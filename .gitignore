@@ -141,3 +141,8 @@ weights/
 #for local development
 *.pt
 *.yaml
+
+# Exceptions for tracked files
+!yolov5n_state_dict.pt
+!yolov5s-face.pt
+!yolov5n.yaml
